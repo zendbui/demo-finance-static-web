@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bài làm tốt — Bộ môn Ngân hàng – Tài chính – Kế toán</title>
+  <meta name="description" content="Tuyển chọn bài tiểu luận, báo cáo, đồ án tốt của sinh viên các khoá." />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">NH·TC·KT</span>
+        <span class="brand-text">Bộ môn Ngân hàng – Tài chính – Kế toán</span>
+      </a>
+      <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Điều hướng chính">
+        <a href="index.html">Trang chủ</a>
+        <a href="mon-hoc.html">Môn học</a>
+        <a href="bai-lam-tot.html">Bài làm tốt</a>
+        <a href="tuyen-dung.html">Tuyển dụng</a>
+        <a href="cuoc-thi.html">Cuộc thi</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-banner">
+    <div class="container">
+      <h1>Bài làm tốt</h1>
+      <p>Tổng hợp những bài tiểu luận, báo cáo, đồ án nổi bật của sinh viên các khoá — nguồn tham khảo cho khoá sau.</p>
+    </div>
+  </div>
+
+  <main class="section">
+    <div class="container">
+      <div class="filters-bar">
+        <input type="search" id="showcase-search" placeholder="Tìm theo tiêu đề, tên sinh viên..." aria-label="Tìm kiếm bài làm tốt" />
+        <select id="showcase-course" aria-label="Lọc theo môn học">
+          <option value="">Tất cả môn học</option>
+        </select>
+        <select id="showcase-cohort" aria-label="Lọc theo khoá">
+          <option value="">Tất cả khoá</option>
+        </select>
+        <span class="results-count" id="showcase-results-count"></span>
+      </div>
+
+      <div id="showcase-list" class="grid grid-3"></div>
+      <p id="showcase-empty" class="empty-state" hidden>Chưa có bài làm nào phù hợp với bộ lọc hiện tại.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Bộ môn Ngân hàng – Tài chính – Kế toán</strong>
+        <p>Email: bomon.nhtckt@truong.edu.vn · Điện thoại: (0xx) xxx xxx xxx</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Fanpage Khoa</a>
+        <a href="#">Facebook Bộ môn</a>
+      </div>
+      <p class="footer-note">© <span id="year"></span> Bộ môn Ngân hàng – Tài chính – Kế toán. Nội dung mẫu, vui lòng cập nhật tại thư mục <code>/data</code>.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/page-showcase.js"></script>
+</body>
+</html>

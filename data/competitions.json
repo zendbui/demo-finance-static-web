@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Cuộc thi \"Nhà Ngân hàng Tương lai\" (ví dụ minh hoạ)",
+    "organizer": "Khoa Tài chính – Ngân hàng (minh hoạ)",
+    "description": "Cuộc thi dành cho sinh viên khối ngành Tài chính – Ngân hàng, thử sức với các tình huống nghiệp vụ ngân hàng thực tế qua các vòng thi kiến thức và xử lý case study.",
+    "url": "#",
+    "startDate": "2026-10-15",
+    "deadline": "2026-12-10",
+    "image": ""
+  },
+  {
+    "name": "Cuộc thi Phân tích Báo cáo Tài chính Doanh nghiệp (ví dụ minh hoạ)",
+    "organizer": "Hội Sinh viên Trường (minh hoạ)",
+    "description": "Sinh viên thành lập đội 3–5 người, lựa chọn một doanh nghiệp niêm yết để phân tích báo cáo tài chính và đề xuất khuyến nghị đầu tư.",
+    "url": "#",
+    "startDate": "2026-08-01",
+    "deadline": "2026-10-01",
+    "image": ""
+  },
+  {
+    "name": "CFA Institute Research Challenge (thông tin tham khảo)",
+    "organizer": "CFA Institute",
+    "description": "Cuộc thi phân tích đầu tư dành cho sinh viên trên toàn cầu, cơ hội cọ xát với chuẩn mực phân tích tài chính quốc tế. Theo dõi trang chính thức để biết lịch và điều kiện tham gia mới nhất.",
+    "url": "https://www.cfainstitute.org/programs/research-challenge",
+    "startDate": "2026-09-01",
+    "deadline": "2027-02-01",
+    "image": ""
+  }
+]

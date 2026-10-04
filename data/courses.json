@@ -1,0 +1,111 @@
+[
+  {
+    "id": "fin101",
+    "code": "TCNH101",
+    "name": "Nhập môn Tài chính – Tiền tệ",
+    "credits": 3,
+    "semester": "Học kỳ 1",
+    "description": "Cung cấp kiến thức nền tảng về bản chất, chức năng của tiền tệ, hệ thống tài chính, thị trường tài chính và vai trò của các định chế trung gian tài chính trong nền kinh tế.",
+    "references": [
+      { "title": "Giáo trình Tài chính – Tiền tệ (Bộ môn biên soạn)", "link": "files/giao-trinh-tai-chinh-tien-te.pdf" },
+      { "title": "Frederic S. Mishkin – The Economics of Money, Banking and Financial Markets", "link": "#" }
+    ],
+    "links": [
+      { "title": "Ngân hàng Nhà nước Việt Nam – Văn bản pháp quy", "url": "https://www.sbv.gov.vn/" },
+      { "title": "Investopedia – Monetary Policy Basics", "url": "https://www.investopedia.com/terms/m/monetarypolicy.asp" }
+    ],
+    "showcases": [
+      { "title": "Tiểu luận: Tác động của chính sách tiền tệ đến lạm phát giai đoạn 2020–2024", "student": "Nguyễn Văn A", "cohort": "K45", "url": "#" }
+    ]
+  },
+  {
+    "id": "bank201",
+    "code": "TCNH205",
+    "name": "Nghiệp vụ Ngân hàng Thương mại",
+    "credits": 3,
+    "semester": "Học kỳ 2",
+    "description": "Trang bị kiến thức và kỹ năng về các nghiệp vụ cốt lõi của ngân hàng thương mại: huy động vốn, tín dụng, thanh toán quốc tế và quản trị rủi ro.",
+    "references": [
+      { "title": "Giáo trình Nghiệp vụ Ngân hàng Thương mại (Bộ môn biên soạn)", "link": "files/giao-trinh-nghiep-vu-nhtm.pdf" },
+      { "title": "Peter S. Rose – Commercial Bank Management", "link": "#" }
+    ],
+    "links": [
+      { "title": "Hiệp hội Ngân hàng Việt Nam (VNBA)", "url": "https://vnba.org.vn/" },
+      { "title": "CFA Institute – Banking & Financial Services", "url": "https://www.cfainstitute.org/" }
+    ],
+    "showcases": [
+      { "title": "Báo cáo thực tập: Quy trình thẩm định tín dụng cá nhân tại ngân hàng TMCP", "student": "Trần Thị B", "cohort": "K44", "url": "#" },
+      { "title": "Dự án nhóm: Phân tích rủi ro tín dụng ngành bán lẻ", "student": "Nhóm 3 – Lê C, Phạm D", "cohort": "K45", "url": "#" }
+    ]
+  },
+  {
+    "id": "acc101",
+    "code": "KT101",
+    "name": "Nguyên lý Kế toán",
+    "credits": 3,
+    "semester": "Học kỳ 1",
+    "description": "Giới thiệu các khái niệm, nguyên tắc kế toán cơ bản, quy trình ghi sổ kép, lập báo cáo tài chính cho doanh nghiệp.",
+    "references": [
+      { "title": "Giáo trình Nguyên lý Kế toán (Bộ môn biên soạn)", "link": "files/giao-trinh-nguyen-ly-ke-toan.pdf" },
+      { "title": "Chuẩn mực Kế toán Việt Nam (VAS)", "link": "#" }
+    ],
+    "links": [
+      { "title": "Bộ Tài chính – Hệ thống chuẩn mực kế toán", "url": "https://mof.gov.vn/" },
+      { "title": "AccountingCoach – Accounting Basics", "url": "https://www.accountingcoach.com/" }
+    ],
+    "showcases": [
+      { "title": "Bài tập lớn: Lập báo cáo tài chính mẫu cho doanh nghiệp vừa và nhỏ", "student": "Hoàng Văn E", "cohort": "K46", "url": "#" }
+    ]
+  },
+  {
+    "id": "acc301",
+    "code": "KT305",
+    "name": "Kế toán Ngân hàng",
+    "credits": 3,
+    "semester": "Học kỳ 2",
+    "description": "Chuyên sâu về hạch toán các nghiệp vụ đặc thù của ngân hàng thương mại: huy động vốn, tín dụng, thanh toán, ngoại hối và lập báo cáo tài chính ngân hàng.",
+    "references": [
+      { "title": "Giáo trình Kế toán Ngân hàng Thương mại (Bộ môn biên soạn)", "link": "files/giao-trinh-ke-toan-ngan-hang.pdf" }
+    ],
+    "links": [
+      { "title": "IFRS Foundation – Financial Instruments (IFRS 9)", "url": "https://www.ifrs.org/" }
+    ],
+    "showcases": []
+  },
+  {
+    "id": "fin302",
+    "code": "TCNH310",
+    "name": "Phân tích Báo cáo Tài chính",
+    "credits": 3,
+    "semester": "Học kỳ 1",
+    "description": "Trang bị kỹ năng đọc hiểu, phân tích báo cáo tài chính doanh nghiệp phục vụ cho quyết định đầu tư, tín dụng và quản trị.",
+    "references": [
+      { "title": "Giáo trình Phân tích Tài chính Doanh nghiệp (Bộ môn biên soạn)", "link": "files/giao-trinh-phan-tich-bctc.pdf" },
+      { "title": "Stephen Penman – Financial Statement Analysis and Security Valuation", "link": "#" }
+    ],
+    "links": [
+      { "title": "Ủy ban Chứng khoán Nhà nước – Báo cáo công ty niêm yết", "url": "https://www.ssc.gov.vn/" },
+      { "title": "CafeF – Dữ liệu tài chính doanh nghiệp", "url": "https://cafef.vn/" }
+    ],
+    "showcases": [
+      { "title": "Bài phân tích: Đánh giá sức khỏe tài chính một ngân hàng niêm yết", "student": "Đỗ Thị F", "cohort": "K44", "url": "#" }
+    ]
+  },
+  {
+    "id": "fin405",
+    "code": "TCNH420",
+    "name": "Quản trị Rủi ro Tài chính",
+    "credits": 3,
+    "semester": "Học kỳ 2",
+    "description": "Giới thiệu các loại rủi ro tài chính (thị trường, tín dụng, thanh khoản, hoạt động) và công cụ, mô hình quản trị rủi ro trong tổ chức tài chính.",
+    "references": [
+      { "title": "Giáo trình Quản trị Rủi ro Tài chính (Bộ môn biên soạn)", "link": "files/giao-trinh-quan-tri-rui-ro.pdf" }
+    ],
+    "links": [
+      { "title": "Basel Committee on Banking Supervision", "url": "https://www.bis.org/bcbs/" }
+    ],
+    "showcases": [
+      { "title": "Đồ án: Xây dựng mô hình đo lường VaR cho danh mục đầu tư", "student": "Nhóm 5 – Vũ G, Ngô H", "cohort": "K45", "url": "#" }
+    ]
+  }
+]
