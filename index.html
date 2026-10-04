@@ -3,15 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("btc-theme");
+        var theme = stored || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+        var storedStyle = localStorage.getItem("btc-style") || "brutalism";
+        document.documentElement.setAttribute("data-style", storedStyle);
+      } catch (e) {}
+    })();
+  </script>
   <title>Bộ môn Ngân hàng – Tài chính – Kế toán</title>
   <meta name="description" content="Trang thông tin Bộ môn Ngân hàng – Tài chính – Kế toán: môn học, tài liệu tham khảo, bài làm tốt, tin tuyển dụng và cuộc thi dành cho sinh viên." />
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Lora:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="meta-bar">
+    <div class="container meta-bar-inner">
+      <span class="meta-date" id="today-date"></span>
+      <span class="meta-tagline">Cổng thông tin sinh viên · Ngân hàng – Tài chính – Kế toán</span>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Chuyển giao diện sáng/tối"></button>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">
@@ -31,59 +52,105 @@
     </div>
   </header>
 
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="ticker-track"></div>
+  </div>
+
   <main>
-    <section class="hero">
-      <div class="container">
-        <p class="eyebrow">Cổng thông tin sinh viên</p>
-        <h1>Đồng hành cùng sinh viên Ngân hàng – Tài chính – Kế toán</h1>
-        <p class="lead">
-          Nơi tổng hợp thông tin môn học, tài liệu và link tham khảo, những bài làm tốt của các khoá trước,
-          tin tuyển dụng từ nhiều nguồn và các cuộc thi học thuật dành cho sinh viên trong Bộ môn.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="mon-hoc.html">Xem môn học &amp; tài liệu</a>
-          <a class="btn btn-outline" href="tuyen-dung.html">Tin tuyển dụng mới nhất</a>
+    <section class="intro">
+      <div class="container intro-inner">
+        <div class="intro-copy">
+          <p class="eyebrow">Cổng thông tin sinh viên</p>
+          <h1>Đồng hành cùng sinh viên<br />Ngân hàng – Tài chính – Kế toán</h1>
+          <p class="lead">
+            Nơi tổng hợp thông tin môn học, tài liệu và link tham khảo, những bài làm tốt của các khoá trước,
+            tin tuyển dụng từ nhiều nguồn và các cuộc thi học thuật dành cho sinh viên trong Bộ môn.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mon-hoc.html">Xem môn học &amp; tài liệu</a>
+            <a class="btn btn-outline" href="tuyen-dung.html">Tin tuyển dụng mới nhất</a>
+          </div>
+        </div>
+        <div class="intro-visual" data-reveal>
+          <svg class="intro-illustration" viewBox="0 0 320 320" role="img" aria-label="Minh hoạ tăng trưởng tài chính: biểu đồ cột, đồng xu và mũi tên đi lên">
+            <rect class="illus-bar illus-bar-1" x="34" y="188" width="50" height="94" />
+            <rect class="illus-bar illus-bar-2" x="106" y="138" width="50" height="144" />
+            <rect class="illus-bar illus-bar-3" x="178" y="92" width="50" height="190" />
+            <line class="illus-baseline" x1="22" y1="282" x2="298" y2="282" />
+            <g class="coin-spin">
+              <circle class="illus-coin" cx="246" cy="58" r="36" />
+              <text class="illus-coin-symbol" x="246" y="70" font-family="IBM Plex Mono, monospace" font-size="30" font-weight="700" text-anchor="middle">₫</text>
+            </g>
+            <path class="arrow-draw illus-arrow-line" d="M30 236 L132 160 L200 196 L284 78" />
+            <path class="illus-arrow-head" d="M284 78 L254 84 L280 110 Z" />
+          </svg>
+          <p class="intro-visual-caption">Hình 01 — Tăng trưởng tài chính qua các học kỳ</p>
+          <span class="sticker sticker-a">4 mảng thông tin chính</span>
+          <span class="sticker sticker-b">Cập nhật mỗi học kỳ</span>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Truy cập nhanh</p>
-            <h2>Bạn đang cần gì?</h2>
-          </div>
+        <div class="section-header" data-reveal>
+          <p class="eyebrow">— 01 —</p>
+          <h2>Bạn đang cần gì?</h2>
+          <p>Bốn khu vực chính của cổng thông tin, cập nhật thường xuyên theo học kỳ.</p>
         </div>
-        <div class="grid grid-4">
-          <a class="card quick-link-card" href="mon-hoc.html">
-            <div class="icon" aria-hidden="true">📘</div>
-            <h3>Môn học</h3>
-            <p>Mô tả môn học, tài liệu và link tham khảo theo từng học kỳ.</p>
-          </a>
-          <a class="card quick-link-card" href="bai-lam-tot.html">
-            <div class="icon" aria-hidden="true">⭐</div>
-            <h3>Bài làm tốt</h3>
-            <p>Tuyển chọn bài tiểu luận, báo cáo, đồ án tốt của các khoá trước.</p>
-          </a>
-          <a class="card quick-link-card" href="tuyen-dung.html">
-            <div class="icon" aria-hidden="true">💼</div>
-            <h3>Tuyển dụng</h3>
-            <p>Tin tuyển dụng tổng hợp từ nhiều nguồn, phù hợp sinh viên ngành.</p>
-          </a>
-          <a class="card quick-link-card" href="cuoc-thi.html">
-            <div class="icon" aria-hidden="true">🏆</div>
-            <h3>Cuộc thi</h3>
-            <p>Cuộc thi học thuật do khoa, trường và các tổ chức bên ngoài phát động.</p>
-          </a>
-        </div>
+        <ul class="index-list">
+          <li data-reveal style="--i:0">
+            <a href="mon-hoc.html">
+              <span class="index-num">01</span>
+              <span class="index-icon" data-icon="book"></span>
+              <span class="index-text">
+                <span class="index-title">Môn học</span>
+                <span class="index-desc">Mô tả môn học, tài liệu và link tham khảo theo từng học kỳ.</span>
+              </span>
+              <span class="index-arrow" data-icon="arrow"></span>
+            </a>
+          </li>
+          <li data-reveal style="--i:1">
+            <a href="bai-lam-tot.html">
+              <span class="index-num">02</span>
+              <span class="index-icon" data-icon="star"></span>
+              <span class="index-text">
+                <span class="index-title">Bài làm tốt</span>
+                <span class="index-desc">Tuyển chọn bài tiểu luận, báo cáo, đồ án tốt của các khoá trước.</span>
+              </span>
+              <span class="index-arrow" data-icon="arrow"></span>
+            </a>
+          </li>
+          <li data-reveal style="--i:2">
+            <a href="tuyen-dung.html">
+              <span class="index-num">03</span>
+              <span class="index-icon" data-icon="briefcase"></span>
+              <span class="index-text">
+                <span class="index-title">Tuyển dụng</span>
+                <span class="index-desc">Tin tuyển dụng tổng hợp từ nhiều nguồn, phù hợp sinh viên ngành.</span>
+              </span>
+              <span class="index-arrow" data-icon="arrow"></span>
+            </a>
+          </li>
+          <li data-reveal style="--i:3">
+            <a href="cuoc-thi.html">
+              <span class="index-num">04</span>
+              <span class="index-icon" data-icon="trophy"></span>
+              <span class="index-text">
+                <span class="index-title">Cuộc thi</span>
+                <span class="index-desc">Cuộc thi học thuật do khoa, trường và các tổ chức bên ngoài phát động.</span>
+              </span>
+              <span class="index-arrow" data-icon="arrow"></span>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 
     <section class="section" style="padding-top:0;">
       <div class="container about-block">
-        <div>
-          <p class="eyebrow">Giới thiệu</p>
+        <div data-reveal>
+          <p class="eyebrow">— 02 —</p>
           <h2>Về Bộ môn</h2>
           <p>
             Bộ môn Ngân hàng – Tài chính – Kế toán đào tạo và nghiên cứu trong các lĩnh vực tài chính, ngân hàng và
@@ -95,33 +162,56 @@
             (sứ mệnh, đội ngũ giảng viên, thành tích...).
           </p>
         </div>
-        <div class="stat-grid">
-          <div class="stat-box"><div class="num" id="stat-courses">—</div><div class="label">Môn học</div></div>
-          <div class="stat-box"><div class="num" id="stat-showcases">—</div><div class="label">Bài làm tốt</div></div>
-          <div class="stat-box"><div class="num" id="stat-jobs">—</div><div class="label">Tin tuyển dụng</div></div>
-          <div class="stat-box"><div class="num" id="stat-competitions">—</div><div class="label">Cuộc thi</div></div>
+        <div data-reveal>
+          <div class="ledger-mini">
+            <div class="ledger-mini-row"><span class="label">Môn học đang cập nhật</span><span class="num" id="stat-courses">—</span></div>
+            <div class="ledger-mini-row"><span class="label">Bài làm tốt được chia sẻ</span><span class="num" id="stat-showcases">—</span></div>
+            <div class="ledger-mini-row"><span class="label">Tin tuyển dụng</span><span class="num" id="stat-jobs">—</span></div>
+            <div class="ledger-mini-row"><span class="label">Cuộc thi</span><span class="num" id="stat-competitions">—</span></div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>Bộ môn Ngân hàng – Tài chính – Kế toán</strong>
-        <p>Email: bomon.nhtckt@truong.edu.vn · Điện thoại: (0xx) xxx xxx xxx</p>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">NH·TC·KT</span>
+        <p>Bộ môn Ngân hàng – Tài chính – Kế toán. Cổng thông tin dành cho sinh viên trong ngành.</p>
       </div>
-      <div class="footer-links">
+      <div class="footer-col">
+        <h4>Điều hướng</h4>
+        <a href="mon-hoc.html">Môn học</a>
+        <a href="bai-lam-tot.html">Bài làm tốt</a>
+        <a href="tuyen-dung.html">Tuyển dụng</a>
+        <a href="cuoc-thi.html">Cuộc thi</a>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <p>bomon.nhtckt@truong.edu.vn</p>
+        <p>(0xx) xxx xxx xxx</p>
+      </div>
+      <div class="footer-col">
+        <h4>Theo dõi</h4>
         <a href="#">Fanpage Khoa</a>
         <a href="#">Facebook Bộ môn</a>
       </div>
-      <p class="footer-note">© <span id="year"></span> Bộ môn Ngân hàng – Tài chính – Kế toán. Nội dung mẫu, vui lòng cập nhật tại thư mục <code>/data</code>.</p>
+    </div>
+    <div class="container footer-note">
+      <span>© <span id="year"></span> Bộ môn Ngân hàng – Tài chính – Kế toán</span>
+      <span>Nội dung mẫu — cập nhật tại <code>/data</code></span>
     </div>
   </footer>
 
   <script src="assets/js/common.js"></script>
   <script>
+    document.querySelectorAll("[data-icon]").forEach((node) => {
+      node.appendChild(icon(node.getAttribute("data-icon")));
+    });
+
     document.addEventListener("DOMContentLoaded", async () => {
+      const track = document.getElementById("ticker-track");
       try {
         const [courses, jobs, competitions] = await Promise.all([
           fetchJSON("data/courses.json"),
@@ -129,12 +219,24 @@
           fetchJSON("data/competitions.json"),
         ]);
         const showcaseCount = courses.reduce((sum, c) => sum + (c.showcases ? c.showcases.length : 0), 0);
+        const openJobs = jobs.filter((j) => (daysUntil(j.deadline) ?? 0) >= 0).length;
+        const activeCompetitions = competitions.filter((c) => (daysUntil(c.deadline) ?? 0) >= 0).length;
+
         document.getElementById("stat-courses").textContent = courses.length;
         document.getElementById("stat-showcases").textContent = showcaseCount;
         document.getElementById("stat-jobs").textContent = jobs.length;
         document.getElementById("stat-competitions").textContent = competitions.length;
+
+        const tickerItems = [
+          `${courses.length} môn học đang cập nhật tài liệu`,
+          `${openJobs} tin tuyển dụng đang mở`,
+          `${activeCompetitions} cuộc thi đang diễn ra hoặc sắp tới`,
+          `${showcaseCount} bài làm tốt được chia sẻ`,
+        ];
+        const build = () => tickerItems.map((t) => el("span", { class: "ticker-item", text: t }));
+        build().concat(build()).forEach((node) => track.appendChild(node));
       } catch (err) {
-        /* Nếu mở bằng file:// thì fetch sẽ lỗi — bỏ qua, các trang con sẽ hiển thị thông báo hướng dẫn. */
+        track.appendChild(el("span", { class: "ticker-item", text: "Đang cập nhật dữ liệu…" }));
       }
     });
   </script>

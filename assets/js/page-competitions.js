@@ -26,7 +26,12 @@ function renderCompetitionCard(comp) {
     comp.organizer ? el("div", { class: "org", text: `Tổ chức: ${comp.organizer}` }) : null,
     comp.description ? el("p", { text: comp.description }) : null,
     dateRange ? el("div", { class: "meta-row" }, [el("span", { text: dateRange })]) : null,
-    el("div", { class: "actions" }, [linkEl(comp.url, "Xem thông tin / Đăng ký →", { class: "btn btn-outline" })]),
+    el("div", { class: "actions" }, [
+      el("a", {
+        class: "btn btn-outline",
+        attrs: { href: safeHref(comp.url), target: /^https?:\/\//i.test(comp.url || "") ? "_blank" : undefined, rel: "noopener noreferrer" },
+      }, ["Xem thông tin / Đăng ký", icon("arrow")]),
+    ]),
   ]);
 }
 
@@ -60,7 +65,11 @@ async function initCompetitionsPage() {
     filtered = filtered.slice().sort((a, b) => (parseDateSafe(a.deadline) || 0) - (parseDateSafe(b.deadline) || 0));
 
     grid.innerHTML = "";
-    filtered.forEach((c) => grid.appendChild(renderCompetitionCard(c)));
+    filtered.forEach((c, idx) => {
+      const card = renderCompetitionCard(c);
+      card.style.setProperty("--i", idx);
+      grid.appendChild(card);
+    });
     emptyState.hidden = filtered.length !== 0;
     resultsCount.textContent = `${filtered.length}/${competitions.length} cuộc thi`;
   }

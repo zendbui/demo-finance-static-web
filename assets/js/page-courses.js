@@ -76,7 +76,11 @@ async function initCoursesPage() {
     });
 
     grid.innerHTML = "";
-    filtered.forEach((c) => grid.appendChild(renderCourseCard(c)));
+    filtered.forEach((c, idx) => {
+      const card = renderCourseCard(c);
+      card.style.setProperty("--i", idx);
+      grid.appendChild(card);
+    });
     emptyState.hidden = filtered.length !== 0;
     resultsCount.textContent = `${filtered.length}/${courses.length} môn học`;
   }

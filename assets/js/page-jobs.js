@@ -13,7 +13,7 @@ function renderJobCard(job) {
     el("div", { class: "list-card-top" }, [el("h3", { text: job.title || "Vị trí tuyển dụng" }), jobDeadlineBadge(job)]),
     el("div", { class: "org", text: job.company || "" }),
     el("div", { class: "meta-row" }, [
-      job.location ? el("span", { text: `📍 ${job.location}` }) : null,
+      job.location ? el("span", { class: "icon-inline" }, [icon("pin"), job.location]) : null,
       job.postedDate ? el("span", { text: `Đăng: ${formatDateVN(job.postedDate)}` }) : null,
       job.source ? el("span", { text: `Nguồn: ${job.source}` }) : null,
     ]),
@@ -24,7 +24,12 @@ function renderJobCard(job) {
           job.tags.map((t) => el("span", { class: "tag-chip", text: t }))
         )
       : null,
-    el("div", { class: "actions" }, [linkEl(job.url || job.sourceUrl, "Xem chi tiết →", { class: "btn btn-outline" })]),
+    el("div", { class: "actions" }, [
+      el("a", {
+        class: "btn btn-outline",
+        attrs: { href: safeHref(job.url || job.sourceUrl), target: "_blank", rel: "noopener noreferrer" },
+      }, ["Xem chi tiết", icon("arrow")]),
+    ]),
   ]);
 }
 
@@ -71,7 +76,11 @@ async function initJobsPage() {
     });
 
     grid.innerHTML = "";
-    filtered.forEach((j) => grid.appendChild(renderJobCard(j)));
+    filtered.forEach((j, idx) => {
+      const card = renderJobCard(j);
+      card.style.setProperty("--i", idx);
+      grid.appendChild(card);
+    });
     emptyState.hidden = filtered.length !== 0;
     resultsCount.textContent = `${filtered.length}/${jobs.length} tin`;
   }

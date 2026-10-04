@@ -3,15 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("btc-theme");
+        var theme = stored || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+        var storedStyle = localStorage.getItem("btc-style") || "brutalism";
+        document.documentElement.setAttribute("data-style", storedStyle);
+      } catch (e) {}
+    })();
+  </script>
   <title>Môn học — Bộ môn Ngân hàng – Tài chính – Kế toán</title>
   <meta name="description" content="Danh sách môn học, tài liệu tham khảo, link tham khảo và bài làm tốt theo từng môn." />
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Lora:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="meta-bar">
+    <div class="container meta-bar-inner">
+      <span class="meta-date" id="today-date"></span>
+      <span class="meta-tagline">Cổng thông tin sinh viên · Ngân hàng – Tài chính – Kế toán</span>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Chuyển giao diện sáng/tối"></button>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand">
@@ -33,6 +54,7 @@
 
   <div class="page-banner">
     <div class="container">
+      <p class="eyebrow">Mục lục — Môn học</p>
       <h1>Môn học</h1>
       <p>Mô tả môn học, tài liệu tham khảo, link tham khảo và bài làm tốt tiêu biểu của từng môn.</p>
     </div>
@@ -41,7 +63,10 @@
   <main class="section">
     <div class="container">
       <div class="filters-bar">
-        <input type="search" id="course-search" placeholder="Tìm theo tên môn, mã môn, nội dung..." aria-label="Tìm kiếm môn học" />
+        <div class="field">
+          <span data-icon="search" aria-hidden="true"></span>
+          <input type="search" id="course-search" placeholder="Tìm theo tên môn, mã môn, nội dung..." aria-label="Tìm kiếm môn học" />
+        </div>
         <select id="course-semester" aria-label="Lọc theo học kỳ">
           <option value="">Tất cả học kỳ</option>
         </select>
@@ -54,20 +79,39 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>Bộ môn Ngân hàng – Tài chính – Kế toán</strong>
-        <p>Email: bomon.nhtckt@truong.edu.vn · Điện thoại: (0xx) xxx xxx xxx</p>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">NH·TC·KT</span>
+        <p>Bộ môn Ngân hàng – Tài chính – Kế toán. Cổng thông tin dành cho sinh viên trong ngành.</p>
       </div>
-      <div class="footer-links">
+      <div class="footer-col">
+        <h4>Điều hướng</h4>
+        <a href="mon-hoc.html">Môn học</a>
+        <a href="bai-lam-tot.html">Bài làm tốt</a>
+        <a href="tuyen-dung.html">Tuyển dụng</a>
+        <a href="cuoc-thi.html">Cuộc thi</a>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <p>bomon.nhtckt@truong.edu.vn</p>
+        <p>(0xx) xxx xxx xxx</p>
+      </div>
+      <div class="footer-col">
+        <h4>Theo dõi</h4>
         <a href="#">Fanpage Khoa</a>
         <a href="#">Facebook Bộ môn</a>
       </div>
-      <p class="footer-note">© <span id="year"></span> Bộ môn Ngân hàng – Tài chính – Kế toán. Nội dung mẫu, vui lòng cập nhật tại thư mục <code>/data</code>.</p>
+    </div>
+    <div class="container footer-note">
+      <span>© <span id="year"></span> Bộ môn Ngân hàng – Tài chính – Kế toán</span>
+      <span>Nội dung mẫu — cập nhật tại <code>/data</code></span>
     </div>
   </footer>
 
   <script src="assets/js/common.js"></script>
+  <script>
+    document.querySelectorAll("[data-icon]").forEach((node) => node.appendChild(icon(node.getAttribute("data-icon"))));
+  </script>
   <script src="assets/js/page-courses.js"></script>
 </body>
 </html>

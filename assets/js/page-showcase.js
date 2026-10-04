@@ -18,7 +18,12 @@ function renderShowcaseCard(item) {
     ]),
     el("div", { class: "org", text: item.courseName ? `${item.courseCode ? item.courseCode + " · " : ""}${item.courseName}` : "" }),
     el("div", { class: "meta-row" }, [el("span", { text: `Sinh viên: ${item.student || "—"}` })]),
-    el("div", { class: "actions" }, [linkEl(item.url, "Xem bài làm →", { class: "btn btn-outline" })]),
+    el("div", { class: "actions" }, [
+      el("a", {
+        class: "btn btn-outline",
+        attrs: { href: safeHref(item.url), target: /^https?:\/\//i.test(item.url || "") ? "_blank" : undefined, rel: "noopener noreferrer" },
+      }, ["Xem bài làm", icon("arrow")]),
+    ]),
   ]);
 }
 
@@ -57,7 +62,11 @@ async function initShowcasePage() {
     });
 
     grid.innerHTML = "";
-    filtered.forEach((i) => grid.appendChild(renderShowcaseCard(i)));
+    filtered.forEach((item, idx) => {
+      const card = renderShowcaseCard(item);
+      card.style.setProperty("--i", idx);
+      grid.appendChild(card);
+    });
     emptyState.hidden = filtered.length !== 0;
     resultsCount.textContent = `${filtered.length}/${items.length} bài làm`;
   }

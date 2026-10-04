@@ -3,21 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("btc-theme");
+        var theme = stored || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+        var storedStyle = localStorage.getItem("btc-style") || "brutalism";
+        document.documentElement.setAttribute("data-style", storedStyle);
+      } catch (e) {}
+    })();
+  </script>
   <title>Không tìm thấy trang — Bộ môn Ngân hàng – Tài chính – Kế toán</title>
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Lora:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <main class="hero" style="min-height: 100vh; display:flex; align-items:center;">
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="meta-bar">
+    <div class="container meta-bar-inner">
+      <span class="meta-date" id="today-date"></span>
+      <span class="meta-tagline">Cổng thông tin sinh viên · Ngân hàng – Tài chính – Kế toán</span>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Chuyển giao diện sáng/tối"></button>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">NH·TC·KT</span>
+        <span class="brand-text">Bộ môn Ngân hàng – Tài chính – Kế toán</span>
+      </a>
+      <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Điều hướng chính">
+        <a href="index.html">Trang chủ</a>
+        <a href="mon-hoc.html">Môn học</a>
+        <a href="bai-lam-tot.html">Bài làm tốt</a>
+        <a href="tuyen-dung.html">Tuyển dụng</a>
+        <a href="cuoc-thi.html">Cuộc thi</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section" style="min-height: 60vh; display:flex; align-items:center;">
     <div class="container" style="text-align:center;">
       <p class="eyebrow">Lỗi 404</p>
-      <h1>Không tìm thấy trang bạn yêu cầu</h1>
-      <p class="lead" style="margin: 0 auto 8px;">Trang có thể đã bị di chuyển hoặc đường dẫn không chính xác.</p>
+      <h1 style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); margin: 10px 0;">Không tìm thấy trang bạn yêu cầu</h1>
+      <p class="lead" style="margin: 0 auto 24px; max-width: 480px;">Trang có thể đã bị di chuyển hoặc đường dẫn không chính xác.</p>
       <div class="hero-actions" style="justify-content:center;">
         <a class="btn btn-primary" href="index.html">Về trang chủ</a>
       </div>
     </div>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">NH·TC·KT</span>
+        <p>Bộ môn Ngân hàng – Tài chính – Kế toán. Cổng thông tin dành cho sinh viên trong ngành.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Điều hướng</h4>
+        <a href="mon-hoc.html">Môn học</a>
+        <a href="bai-lam-tot.html">Bài làm tốt</a>
+        <a href="tuyen-dung.html">Tuyển dụng</a>
+        <a href="cuoc-thi.html">Cuộc thi</a>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <p>bomon.nhtckt@truong.edu.vn</p>
+        <p>(0xx) xxx xxx xxx</p>
+      </div>
+      <div class="footer-col">
+        <h4>Theo dõi</h4>
+        <a href="#">Fanpage Khoa</a>
+        <a href="#">Facebook Bộ môn</a>
+      </div>
+    </div>
+    <div class="container footer-note">
+      <span>© <span id="year"></span> Bộ môn Ngân hàng – Tài chính – Kế toán</span>
+      <span>Nội dung mẫu — cập nhật tại <code>/data</code></span>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
 </body>
 </html>
